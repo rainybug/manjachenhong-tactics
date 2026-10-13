@@ -1,0 +1,380 @@
+[
+  {
+    "id": "ch1",
+    "name": "カイ",
+    "url": "https://img.game8.jp/13022765/3fea0f9221fb46df50230f4c1428eb17.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch2",
+    "name": "ディートリヒ",
+    "url": "https://img.game8.jp/13022798/14080b4b08b50fe7db3bba06b4c9eabd.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch3",
+    "name": "セオドラ",
+    "url": "https://img.game8.jp/13022780/0483fe88d4d5eaa7b51420e69f35a6a6.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch4",
+    "name": "レダ",
+    "url": "https://img.game8.jp/13022783/c3935f2a7ab3f0b31cc72a80fbca36ed.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch5",
+    "name": "ティアラ",
+    "url": "https://img.game8.jp/13022773/bf4cef9063543ed7f719e440e166a446.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch6",
+    "name": "ピーテル",
+    "url": "https://img.game8.jp/13022762/97f7eeebbc479baf336016dd4ea4fdfd.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch7",
+    "name": "ウルタンド",
+    "url": "https://img.game8.jp/13022761/4f4676e632233d872e26ca3586b67a76.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch8",
+    "name": "エスメラルダ",
+    "url": "https://img.game8.jp/13022796/2ecf77a9fa2b06e812d1eb6a1879829f.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch9",
+    "name": "ミカエラ",
+    "url": "https://img.game8.jp/13022788/473b835a176e73a262c351381a4e0315.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch10",
+    "name": "ボナパルテ",
+    "url": "https://img.game8.jp/13022779/f264c473faf29f27c7ec8c8d8ad42c6d.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch11",
+    "name": "トビヤス",
+    "url": "https://img.game8.jp/13022769/7ccf3d08a2730e4ead973a65fe60f589.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch12",
+    "name": "リリアン",
+    "url": "https://img.game8.jp/13022789/90baf084043eb45d052fec4076ab92b0.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch13",
+    "name": "ライサンダー",
+    "url": "https://img.game8.jp/13022770/06d4ec17d46f4587ce4426201226b3a4.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch14",
+    "name": "バッカニア",
+    "url": "https://img.game8.jp/13022777/f376a7c013bdf67b359b7dcea0744404.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch15",
+    "name": "シロッコ",
+    "url": "https://img.game8.jp/13022776/975b77411e9520415c66b2e67fdcbdec.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch16",
+    "name": "オリンピア",
+    "url": "https://img.game8.jp/13022772/e687261b8377727c6265d3625db20e50.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch17",
+    "name": "ムウ",
+    "url": "https://img.game8.jp/13022799/7113085938bc73df39a65b52fe5e0e5d.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch18",
+    "name": "ベルトラン",
+    "url": "https://img.game8.jp/13022774/0ea5858d0ebdd8185ceec965c7ac1db9.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch19",
+    "name": "ゲイツ",
+    "url": "https://img.game8.jp/13022767/55e6c73a462f3d742170093a6c2fad0a.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch20",
+    "name": "ダンテ",
+    "url": "https://img.game8.jp/13022791/6f9d0ef33af76132aa889a62ce47c4fb.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch21",
+    "name": "タリムーン",
+    "url": "https://img.game8.jp/13022775/acbac61c4bf7b0061ddafd85eb290d60.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch22",
+    "name": "ウーシュラ",
+    "url": "https://img.game8.jp/13022758/746a8070a2540d4626f23145840fcdd1.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch23",
+    "name": "シモン",
+    "url": "https://img.game8.jp/13022784/2dd449459affec852b75dba6e087253b.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch24",
+    "name": "オルヘル",
+    "url": "https://img.game8.jp/13022760/0d6c5603e7950d7adfedea69d33ee432.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch25",
+    "name": "ディエゴ",
+    "url": "https://img.game8.jp/13022785/da38ef6848fe4776c1e2c89158f2f8a8.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch26",
+    "name": "アナトリア",
+    "url": "https://img.game8.jp/13022795/c36bf0da2475e7f009125f6731555936.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch27",
+    "name": "サラン",
+    "url": "https://img.game8.jp/13022797/85f02304eaf595733c8a1cd870f6fb07.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch28",
+    "name": "ナジャ",
+    "url": "https://img.game8.jp/13022766/83fe8f3700a231f31b1553684bb0a010.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch29",
+    "name": "イオ",
+    "url": "https://img.game8.jp/13022792/5f274c56dd8534bcadffee670fe3fef2.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch30",
+    "name": "カターニャ",
+    "url": "https://img.game8.jp/13022787/6d4c132d8174e88a9814c38aa35fef49.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch31",
+    "name": "ヌディーヌ",
+    "url": "https://img.game8.jp/13022801/9e9a31b5325005cf46460da963c0f3b0.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch32",
+    "name": "アレキサンドラ",
+    "url": "https://img.game8.jp/13022786/50554e8cd028be556e24964fc16a7c59.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch33",
+    "name": "ノクチュラ",
+    "url": "https://img.game8.jp/13022778/3c31ff906c5aa737c08d0a7f50f27ee6.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch34",
+    "name": "ソフィア",
+    "url": "https://img.game8.jp/13022782/9d67af36c2b754183c923909590ffaeb.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch35",
+    "name": "ペペ",
+    "url": "https://img.game8.jp/13022771/9446de474d08a7dfdaae78642282568c.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch36",
+    "name": "セテス",
+    "url": "https://img.game8.jp/13022790/3bf7b55c40ea92de050c77fb12e216d3.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch37",
+    "name": "ロレッタ",
+    "url": "https://img.game8.jp/13022800/4f2f2b2de32f5e5762b7c828fb2eb767.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch38",
+    "name": "ジェスター",
+    "url": "https://img.game8.jp/13022781/e95390b2330136f336167afcad283e16.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch39",
+    "name": "ゴライアス",
+    "url": "https://img.game8.jp/13022763/3e4abe6564c73a11e10cad796afa4e63.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch40",
+    "name": "ルルディヤー",
+    "url": "https://img.game8.jp/13022794/1371b376aee66d11d50829c6206c5f23.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch41",
+    "name": "ダイトウ",
+    "url": "https://img.game8.jp/13022768/24368d1cd41e2cc159b69584840b3c5e.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch42",
+    "name": "フィアナ",
+    "url": "https://img.game8.jp/13022793/ac6b945a80ab92d78514c67d925a93d6.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch43",
+    "name": "ハルヴィン",
+    "url": "https://img.game8.jp/13022764/1694dacf0dc31b4e65eb4eace4d4eb8d.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "ch44",
+    "name": "イニオニ",
+    "url": "https://img.game8.jp/13022759/51e90d0eb302330db7cc5f72d3aff10c.webp/show",
+    "source": "game8_5y"
+  },
+  {
+    "id": "un1",
+    "name": "ファビオ",
+    "url": "https://img.game8.jp/13012141/4a1b77a39d91050b4ec04aace350f10d.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un2",
+    "name": "セントリオン",
+    "url": "https://img.game8.jp/13012147/8827c8d2c2f48d750490216780264d44.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un3",
+    "name": "トロイア",
+    "url": "https://img.game8.jp/13012156/d56c0e1327e460b92c5d112464dc99be.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un4",
+    "name": "コウカ",
+    "url": "https://img.game8.jp/13012131/4cbfb8b455a7001d2a302b80fe24185f.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un5",
+    "name": "ニネ",
+    "url": "https://img.game8.jp/13012149/be5278547f99311d89b5fec41784a024.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un6",
+    "name": "グザラン",
+    "url": "https://img.game8.jp/13012125/f02f8b372ab35951642607cfb51f83b3.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un7",
+    "name": "ベンディッツ",
+    "url": "https://img.game8.jp/13012175/08db6ebf538537601ffcf2587209c544.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un8",
+    "name": "ヨーカイ",
+    "url": "https://img.game8.jp/13012164/a95e106e3825c9981ce016b7abee6488.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un9",
+    "name": "ヌッツォ",
+    "url": "https://img.game8.jp/13012136/81346e7c6c7f65e57866bb8bb07d7e05.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un10",
+    "name": "マジーデ",
+    "url": "https://img.game8.jp/13012177/45640f074789b0b0189683659981b749.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un11",
+    "name": "ザーコネ",
+    "url": "https://img.game8.jp/13012169/9576562cd718ea02b5bb80f49062618d.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un12",
+    "name": "ネイサン",
+    "url": "https://img.game8.jp/13017712/7884c13c0d293c633c4bac196d79c287.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un13",
+    "name": "キリーク",
+    "url": "https://img.game8.jp/13016888/ec091f6050f9301a4ce551a0e204b9b8.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un14",
+    "name": "ジャスミン",
+    "url": "https://img.game8.jp/13012163/cae511a3c3c2f5ec97f8ad9329e3688c.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "un15",
+    "name": "キロイカ",
+    "url": "https://img.game8.jp/13012170/f72394de61f3c304c96ce0cfb38c5618.webp/show",
+    "source": "game8_unchanged"
+  },
+  {
+    "id": "ex60",
+    "name": "アスワン",
+    "url": "https://img.game8.jp/13017452/9321cab9c4db01e9468fd41d1751cdbe.webp/show",
+    "source": "game8"
+  },
+  {
+    "id": "ex61",
+    "name": "タホウニア",
+    "url": "https://img.game8.jp/13017454/2abd720babbafe1d265766bfdaadd1dc.webp/show",
+    "source": "game8"
+  },
+  {
+    "id": "ex62",
+    "name": "クラプカ",
+    "url": "https://img.game8.jp/13029015/09bdeb440397e5494ec9ba1a31cb5a92.webp/show",
+    "source": "game8"
+  },
+  {
+    "id": "ex63",
+    "name": "救世主",
+    "url": "https://img.game8.jp/13012151/96813757034e42e03465e3f7f5ae0bf3.webp/show",
+    "source": "game8"
+  }
+]
