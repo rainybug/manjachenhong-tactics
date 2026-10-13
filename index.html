@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#131c2e">
-<title>만자천홍 전술판 · v1.1.1</title>
+<title>만자천홍 전술판 · v1.1.1 Cloud</title>
 <style>
 :root{color-scheme:light;--ink:#172338;--muted:#708096;--navy:#121d32;--border:#dde4ef;--paper:#f5f7fb;--accent:#355be6;--shadow:0 8px 28px rgba(22,34,56,.07)}
 *{box-sizing:border-box}html,body{height:100%;margin:0}body{font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Noto Sans JP",sans-serif;background:#edf1f7;color:var(--ink);overflow:hidden}button,select,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}.btn{white-space:nowrap}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #8ba5ff;outline-offset:2px}
@@ -56,18 +56,34 @@
 .role-field{display:flex;gap:7px;align-items:center}.role-field .search{flex:1;min-width:0}.role-field .btn{font-size:12px}
 @media(max-width:1100px){.selection-toolbar{max-height:115px;overflow-y:auto}.zoom-actions{flex-wrap:wrap;justify-content:flex-end}}
 @media(max-width:680px){.canvas-toolbar{gap:5px}.selection-toolbar{flex-wrap:nowrap;padding:5px 8px;max-height:none;min-height:42px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}.selection-toolbar>*{flex-shrink:0}.selection-toolbar .btn-tool{font-size:10px;padding:4px 6px}.selection-separator{display:none}.selection-count{font-size:11px}.zoom-actions .btn-portrait{padding:4px 5px}}
+
+/* Optional Firebase cloud panel; the board continues to work without a connection. */
+.cloud-backdrop[hidden],.cloud-section[hidden],.cloud-decision[hidden]{display:none!important}
+.cloud-backdrop{position:fixed;inset:0;z-index:6000;background:#0d1836b5;display:flex;align-items:center;justify-content:center;padding:15px}
+.cloud-dialog{width:min(100%,470px);max-height:94dvh;overflow-y:auto;background:#fff;border-radius:16px;padding:22px;box-shadow:0 22px 75px #0006}
+.cloud-header{display:flex;justify-content:space-between;gap:12px;align-items:start}.cloud-header h2{margin:0;font-size:21px}.cloud-header p{font-size:13px;color:#64748b;margin:5px 0 0}
+.cloud-close{border:0;background:transparent;color:#475569;font-size:28px;line-height:1;padding:0 4px}
+.cloud-status{margin:16px 0 13px;padding:10px;background:#f1f5fa;border:1px solid #d6e0f0;border-radius:8px;display:flex;align-items:center;gap:9px;font-size:13px}
+.cloud-led{width:9px;height:9px;flex-shrink:0;border-radius:100px;background:#94a3b8}.cloud-led.good{background:#059669}.cloud-led.bad{background:#df4d49}
+.cloud-section{display:flex;flex-direction:column;gap:9px}.cloud-section label{font-size:13px;font-weight:700}.cloud-section input{width:100%;border:1px solid #ccd7e7;border-radius:8px;padding:10px 12px}
+.cloud-note{font-size:12px;line-height:1.7;color:#64748b;margin:9px 0 0}.cloud-account{font-size:13px;margin-bottom:4px}
+.cloud-buttons{display:flex;gap:7px;flex-wrap:wrap}.cloud-buttons .btn{flex:1;min-width:170px;white-space:normal}
+.cloud-decision{border:1px solid #b7c9e9;background:#f3f7ff;border-radius:9px;padding:12px;font-size:13px;line-height:1.6}.cloud-decision p{margin:5px 0 0}
+.cloud-message{font-size:13px;min-height:18px;color:#3355a9;margin:12px 0 0;white-space:pre-line}
+@media(max-width:680px){.cloud-dialog{padding:17px}.cloud-buttons{flex-direction:column}.cloud-buttons .btn{width:100%}.topbar .board-actions{gap:5px}}
 </style>
 </head>
 <body>
 <div class="app">
   <header class="topbar">
-    <div class="brand"><div class="brand-mark" aria-hidden="true">万</div><div><strong>만자천홍 전술판</strong><small>TACTICAL BOARD · v1.1.1</small></div></div>
+    <div class="brand"><div class="brand-mark" aria-hidden="true">万</div><div><strong>만자천홍 전술판</strong><small>TACTICAL BOARD · v1.1.1 CLOUD</small></div></div>
     <div class="board-actions">
       <select class="board-select" id="boardSelect" aria-label="전술판 선택"></select>
       <button class="btn btn-dark" id="newBoard" title="새 전술판 만들기">＋ 새 판</button>
       <button class="btn btn-dark" id="copyBoard" title="현재 전술판 복제">⧉ 복제</button>
       <button class="btn btn-dark icon-btn" id="renameBoard" title="현재 전술판 이름 변경" aria-label="이름 변경">✎</button>
       <button class="btn btn-dark icon-btn" id="deleteBoard" title="현재 전술판 삭제" aria-label="전술판 삭제">🗑</button>
+      <button class="btn btn-dark" id="cloudOpen" title="Firebase 클라우드 동기화">☁ 동기화</button>
       <button class="btn btn-dark" id="exportBackup" title="전체 유닛과 전술판 백업 내려받기 (v1.1.1)">↓ 백업</button>
       <button class="btn btn-dark" id="importBackup" title="v1.1 / v1.1.1 JSON 백업 가져오기">↑ 복원</button><input type="file" id="importFile" accept=".json,application/json" hidden>
     </div>
@@ -123,6 +139,32 @@
   </section>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<!-- Cloud UI lives apart from the original v1.1.1 board engine. -->
+<div id="cloudBackdrop" class="cloud-backdrop" hidden>
+ <section class="cloud-dialog" role="dialog" aria-modal="true" aria-labelledby="cloudHeading">
+  <div class="cloud-header"><div><h2 id="cloudHeading">☁ 전술판 동기화</h2><p>PC와 아이폰에서 같은 계정으로 로그인하세요.</p></div><button type="button" class="cloud-close" id="cloudClose" aria-label="닫기">×</button></div>
+  <div class="cloud-status"><span class="cloud-led" id="cloudLed"></span><span id="cloudStatus">클라우드 모듈을 불러오는 중…</span></div>
+  <div id="cloudLoggedOut" class="cloud-section">
+    <label for="cloudEmail">이메일</label><input id="cloudEmail" type="email" autocomplete="username" placeholder="Firebase Authentication 계정 이메일">
+    <label for="cloudPassword">비밀번호</label><input id="cloudPassword" type="password" autocomplete="current-password" placeholder="비밀번호">
+    <button type="button" class="btn btn-primary" id="cloudLogin">로그인</button>
+    <p class="cloud-note">Firebase Console → Authentication → 사용자 → 사용자 추가에서 계정을 만든 뒤 로그인하세요. 비밀번호는 전술판에 저장하지 않습니다.</p>
+  </div>
+  <div id="cloudLoggedIn" class="cloud-section" hidden>
+    <div class="cloud-account">로그인: <strong id="cloudAccount"></strong></div>
+    <div id="cloudDecision" class="cloud-decision" hidden>
+      <strong id="cloudDecisionTitle">처음 연결하기</strong><p id="cloudDecisionText">어느 데이터를 기준으로 사용할지 선택하세요.</p>
+    </div>
+    <div class="cloud-buttons">
+      <button type="button" class="btn btn-primary" id="cloudDownload" disabled>↓ 클라우드 편성 불러오기</button>
+      <button type="button" class="btn" id="cloudUpload" disabled>↑ 이 기기 편성 올리기</button>
+    </div>
+    <button type="button" class="btn" id="cloudLogout">로그아웃</button>
+    <p class="cloud-note">연결 후 유닛·병종·색상·위치와 전술판 변경은 자동 동기화됩니다. 사용자 지정 얼굴 사진은 기기에만 남고, 기본 초상화는 사이트의 assets 폴더를 사용합니다.</p>
+  </div>
+  <p id="cloudMessage" class="cloud-message" role="status" aria-live="polite"></p>
+ </section>
+</div>
 <!-- Local portrait image files: assets/portraits/<character-id>.webp. Run download_portraits.py once to populate. -->
 <script>
 (()=>{'use strict';
@@ -164,7 +206,7 @@ let panelOpen=false,view={x:0,y:0,s:1},boardDirty=false,modalUnitId=null,modalNe
 const board=()=>app.boards.find(b=>b.id===app.activeBoardId)||app.boards[0];
 const getUnit=id=>app.units.find(u=>u.id===id);
 const isMobile=()=>matchMedia('(max-width:680px)').matches;
-function persist(){try{localStorage.setItem(KEY,JSON.stringify(app));el.saveDot.classList.remove('error');el.saveMessage.textContent='변경 사항 저장됨'}catch(err){el.saveDot.classList.add('error');el.saveMessage.textContent='저장 불가 — 브라우저 저장소 확인';showToast('저장에 실패했어요. 브라우저의 저장 권한을 확인하세요.') }}
+function persist(notifyCloud=true){try{localStorage.setItem(KEY,JSON.stringify(app));el.saveDot.classList.remove('error');el.saveMessage.textContent='변경 사항 저장됨';if(notifyCloud)window.dispatchEvent(new Event('tactics-local-change'))}catch(err){el.saveDot.classList.add('error');el.saveMessage.textContent='저장 불가 — 브라우저 저장소 확인';showToast('저장에 실패했어요. 브라우저의 저장 권한을 확인하세요.') }}
 function showToast(message){clearTimeout(noticeTimeout);el.toast.textContent=message;el.toast.classList.add('show');noticeTimeout=setTimeout(()=>el.toast.classList.remove('show'),2400)}
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function picUrl(u){if(u.customImage)return u.customImage;if(u.id==='ex63'&&app.settings.saviorGender==='female')return SAVIOR_FEMALE;return CATALOG_BY_ID.get(u.id)?.url||''}
@@ -267,7 +309,7 @@ $('portraitToggle').addEventListener('click',()=>{app.settings.showPortraits=!ap
 // JSON format v1.1.1. Accepts earlier v1.1 backup; never imports v1.0.
 $('exportBackup').addEventListener('click',()=>{try{const blob=new Blob([JSON.stringify(app,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');const stamp=new Date().toISOString().slice(0,10);a.download='manjacheonhong-v1.1.1-'+stamp+'.json';a.href=url;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);showToast('v1.1.1 백업을 내보냈습니다.')}catch{showToast('백업 파일 생성 실패')}});
 $('importBackup').addEventListener('click',()=>$('importFile').click());
-$('importFile').addEventListener('change',async e=>{const file=e.target.files?.[0];e.target.value='';if(!file)return;try{if(file.size>10_000_000)throw Error('too big');const text=await file.text();const raw=JSON.parse(text);const restored=validate(raw);if(!restored){showToast('v1.1 또는 v1.1.1 백업 파일이 아닙니다.');return}if(!confirm('현재 v1.1.1 명단과 모든 전술판을 백업 파일 내용으로 교체할까요?\n이 작업은 되돌릴 수 없습니다.'))return;const previous=app;app=restored;try{localStorage.setItem(KEY,JSON.stringify(app))}catch(err){app=previous;throw err}el.search.value='';clearSelection(true);undoStack.length=0;renderAll();fit();showToast('백업을 복원했습니다. (v1.1 백업 호환)')}catch(err){showToast('복원 실패 — 파일 형식 또는 저장 용량을 확인하세요.')}});
+$('importFile').addEventListener('change',async e=>{const file=e.target.files?.[0];e.target.value='';if(!file)return;try{if(file.size>10_000_000)throw Error('too big');const text=await file.text();const raw=JSON.parse(text);const restored=validate(raw);if(!restored){showToast('v1.1 또는 v1.1.1 백업 파일이 아닙니다.');return}if(!confirm('현재 v1.1.1 명단과 모든 전술판을 백업 파일 내용으로 교체할까요?\n이 작업은 되돌릴 수 없습니다.'))return;const previous=app;app=restored;try{persist()}catch(err){app=previous;throw err}el.search.value='';clearSelection(true);undoStack.length=0;renderAll();fit();showToast('백업을 복원했습니다. (v1.1 백업 호환)')}catch(err){showToast('복원 실패 — 파일 형식 또는 저장 용량을 확인하세요.')}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(el.modal.classList.contains('open'))closeModal();else if(selectMode)clearSelection(true)}if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'&&!e.repeat&&!el.modal.classList.contains('open')&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)){e.preventDefault();undo()}});
 // Multiple boards share the unit catalog; each board owns only its positions.
 el.boardSelect.addEventListener('change',e=>{app.activeBoardId=e.target.value;clearSelection(true);persist();renderUnits();fit()});
@@ -279,6 +321,16 @@ $('deleteBoard').addEventListener('click',()=>{if(app.boards.length<=1)return;if
 el.search.addEventListener('input',renderUnits);
 // ResizeObserver handles orientation change, device rotation, and expanding the mobile roster.
 let resizeScheduled=false;new ResizeObserver(()=>{if(resizeScheduled)return;resizeScheduled=true;requestAnimationFrame(()=>{resizeScheduled=false;fit()})}).observe(el.viewport);
+// Firebase reads/writes through this bridge so the original board engine remains independent.
+window.tacticsCloudBridge={
+ getState:()=>structuredClone(app),
+ applyState:(raw)=>{const next=validate(raw);if(!next)return false;
+   // Remote data does not include user-uploaded images; keep this device's uploaded pictures.
+   const pictures=new Map(app.units.filter(u=>u.customImage).map(u=>[u.id,u.customImage]));
+   next.units.forEach(u=>{if(!u.customImage&&pictures.has(u.id))u.customImage=pictures.get(u.id)});
+   app=next;el.search.value='';clearSelection(true);undoStack.length=0;persist(false);renderAll();fit();return true;
+ }
+};
 renderAll();requestAnimationFrame(fit);
 // Local portrait setup indicator: no network request, all source images live inside app directory.
 const localProbe=new Image();localProbe.onload=()=>{$('statusLine').textContent='1600 × 900 · 로컬 얼굴 준비됨'};
@@ -288,5 +340,6 @@ localProbe.src='assets/portraits/ch1.webp';
 try{if(!localStorage.getItem(KEY))persist();else{el.saveMessage.textContent='자동 저장 활성화'}}catch{el.saveDot.classList.add('error');el.saveMessage.textContent='저장소 접근 불가'}
 })();
 </script>
+<script type="module" src="./firebase-sync.js"></script>
 </body>
 </html>
